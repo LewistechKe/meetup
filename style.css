@@ -53,9 +53,9 @@ header :where(nav, .menu, .menu ul) {
     align-items: center;
 }
 .logo a {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-weight: 600;
-    margin-right: 2.5rem;
+    margin-right: 2.5em;
 }
 
 /* Header: Responsive Menu  */
@@ -70,14 +70,21 @@ nav {
     right: 0;
     bottom: 0;
     width: 320px;
-    background-color: yellowfree;
+    background-color: var(--dark-color);
     z-index: 100;
+    transform: translate3d(-100%,0,0);
+    visibility: hidden;
+    transition: transform .3s, visibility .3s;
+}
+.showmenu .menu {
+    transform: translate3d(0,0,0);
+    visibility: visible;
 }
 .menu ul {
     flex-direction: column;
     line-height: normal;
     width: 100%;
-    gap: 1rem;
+    gap: 1em;
     font-size: 1.75em;
 }
 .menu .close {
@@ -94,6 +101,21 @@ nav {
 }
 .menu a:hover {
     color: var(--main-color);
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--main-color);
+    opacity: 0;
+    z-index: 99;
+    visibility: hidden;
+}
+.showmenu .overlay {
+    opacity: .75;
+    visibility: visible;
 }
 
 /* ===  02. Hero  ===*/
@@ -132,5 +154,17 @@ nav {
     }
     nav {
         justify-content: unset;
+    }
+    .menu {
+        position: relative;
+        border-color: transparent;
+        transform: none;
+        visibility: visible;
+    }
+    .menu ul {
+        font-size: inherit;
+        flex-direction: row;
+        line-height: inherit;
+        gap: 2.5em;
     }
 }
