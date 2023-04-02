@@ -99,7 +99,7 @@ nav {
 .menu a {
     transition: color .3s;
 }
-.menu a:hover {
+.menu a:hover, a.menu-trigger:hover {
     color: var(--main-color);
 }
 .overlay {
@@ -117,7 +117,44 @@ nav {
     opacity: .75;
     visibility: visible;
 }
-
+/* Header: Responsive Menu */
+.button a {
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 110px;
+    padding: 0 2em;
+    line-height: 42px;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    margin: 0 1em 1em 0;
+    transition: border-radius .3s, color, .3s;
+}
+.button a.light {
+    background-color: var(--main-color);
+    border-bottom-left-radius: 0;
+    box-shadow: rgb(83 82 237) 0px 12px 40px -12px;
+}
+.button a.light:hover {
+    border-top-right-radius: 0;
+}
+.button a.dark {
+    border-top-right-radius: 0;
+    border: 2px solid var(--main-color);
+}
+.button a.dark:hover {
+    color: var(--main-color);
+    border-bottom-left-radius: 0;
+    box-shadow: rgb(83, 82, 237) 0px 12px 40px -12px;
+}
+.button a.menu-trigger {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 10px;
+    min-width: auto;
+    border: 0;
+}
 /* ===  02. Hero  ===*/
 
 
@@ -166,5 +203,8 @@ nav {
         flex-direction: row;
         line-height: inherit;
         gap: 2.5em;
+    }
+    .button .menu-trigger, .menu .close {
+        display: none;
     }
 }
