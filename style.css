@@ -325,7 +325,8 @@ main > div {
 .bg_white h2 {
     color: var(--dark-color);
 }
-.brands::before {
+.brands::before,
+.cta::before {
     content: '';
     position: absolute;
     left: -60px;
@@ -428,13 +429,26 @@ main > div {
     vertical-align: top;
     font-family: cursive;
     z-index: -1;
+    opacity: .5;
+}
+.engage .button, .testimonials .item .button {
+    margin-top: 3em;
 }
 
-
-
-/* ===  07. footer  ===*/
-
-
+/* ===  07. cta  ===*/
+.cta .grid {
+    gap: 1em;
+}
+.cta .button a.dark {
+    color: var(--main-color);
+}
+.cta::before {
+    top: auto;
+    bottom: -300px;
+    left: auto;
+    right: -60px;
+    height: 400px;
+}
 
 
 /* ===  08. Animation  ===*/
