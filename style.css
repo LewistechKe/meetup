@@ -422,7 +422,12 @@ main > div {
 .testimonials .item sup {
     position: absolute;
     top: -120px;
-    
+    left: -100px;
+    color: var(--main-color);
+    font-size: 7em;
+    vertical-align: top;
+    font-family: cursive;
+    z-index: -1;
 }
 
 
