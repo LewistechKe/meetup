@@ -96,10 +96,10 @@ nav {
     font-size: 1.5em;
     display: flex;
 }
-.menu a {
+.menu a, .footer_links a {
     transition: color .3s;
 }
-.menu a:hover, a.menu-trigger:hover {
+.menu a:hover, a.menu-trigger:hover, .footer_links a:hover {
     color: var(--main-color);
 }
 .overlay {
@@ -172,7 +172,7 @@ main > div {
 .grid .half {
     flex: 1 0 50%;
 }
-.grid text {
+.grid_text {
     display: flex;
     flex-direction: column;
     gap: 3em;
@@ -451,8 +451,80 @@ main > div {
 }
 
 
+/* ===  08. Footer  ===*/
+footer .grid {
+    flex-direction: column;
+    gap: 2em;
+}
+footer .grid .half:first-child {
+    display: flex;
+    flex-direction: column;
+}
+footer .grid .half:last-child {
+    display: flex;
+}
+.footer_links h3 {
+    margin-bottom: 1em;
+    font-weight: 600;
+}
+.footer_links ul {
+    line-height: 1.8;
+    font-size: 90%;
+}
+.footer_links a {
+    color: var(--grey-color);
+}
+footer .socials ul {
+    display: flex;
+    gap: 1em;
+    font-size: 1.5em;
+}
+footer .copyright {
+    margin: 2em 0;
+    padding: 1em 0;
+    font-size: 80%;
+    color: var(--grey-color);
+    text-align: center;
+    border-top: 1px solid #3f3b4a;
+}
 /* ===  08. Animation  ===*/
-
+.animate > div,
+.side.animate li {
+    opacity: 0;
+    transition: transform 1.5s, opacity 1.5s;
+}
+.up.animate > div {
+    transform: translateY(20%);
+}
+.down.animate > div {
+    transform: translateY(-20%);
+}
+:is(.up, .down).animate.this > div {
+    transform: translateY(0);
+    opacity: 1;
+}
+.animate > div:nth-child(2), .animate li:nth-child(1){
+    transition-delay: .3s;
+}
+.animate > div:nth-child(3), .animate li:nth-child(2){
+    transition-delay: .5s;
+}
+.animate li:nth-child(3) {
+    transition-delay: .7s;
+}
+.animate li:nth-child(4) {
+    transition-delay: .7s;
+}
+.animate li:nth-child(5) {
+    transition-delay: .7s;
+}
+.side.animate li {
+    transform: translateX(20%);
+}
+.side.animate.this li {
+    transform: translateX(0);
+    opacity: 1;
+}
 
 
 @media screen and (min-width: 992px) {
@@ -486,5 +558,19 @@ main > div {
     }
     .features .grid {
         flex-wrap: nowrap;
+    }
+    footer .grid {
+        flex-direction: row;
+        gap: 0;
+    }
+    footer .grid .half:first-child {
+        flex-basis: 60%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    footer .grid .half:last-child {
+        flex-basis: 40%;
+        align-items: flex-end;
+        justify-content: flex-end;
     }
 }
